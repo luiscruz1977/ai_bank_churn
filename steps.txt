@@ -1,0 +1,14 @@
+-- Virtual Env
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+
+-- Requirements
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+-- Launch API
+uvicorn app.api:app --reload
+http://127.0.0.1:8000/docs
+
+-- Launc App
+python -m app.test_retention

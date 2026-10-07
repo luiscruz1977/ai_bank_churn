@@ -1,0 +1,401 @@
+complaint_id,customer_id,date,channel,text,sentiment
+R0001,C00457,2026-01-13,app,A app não reconhece o meu Face ID. Já tentei de tudo. Já estou farto.,negative
+R0002,C02234,2025-04-22,email,Aprovação de crédito negada sem explicação clara. Falta de transparência. Já estou farto.,negative
+R0003,C02070,2025-12-26,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Vou apresentar queixa no Banco de Portugal.,negative
+R0004,C01719,2026-01-24,email,A agência está sempre fechada ou com filas enormes. Digital não funciona bem. Já estou farto.,negative
+R0005,C01732,2025-02-22,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso. Isto não se faz.,negative
+R0006,C01557,2026-02-18,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0007,C01882,2026-03-01,chat,O chat online só dá respostas automáticas inúteis. Quero falar com humano. Isto não se faz.,negative
+R0008,C01482,2026-01-31,phone,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato. Já estou farto.,negative
+R0009,C00327,2025-07-14,phone,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0010,C01858,2025-04-18,phone,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Isto não se faz.,negative
+R0011,C00293,2025-05-06,email,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0012,C01894,2026-03-08,app,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Isto não se faz.,negative
+R0013,C00939,2025-07-25,phone,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0014,C00272,2025-06-11,email,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0015,C02045,2025-05-07,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0016,C02208,2025-10-26,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0017,C01483,2025-02-16,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0018,C00450,2025-08-05,chat,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0019,C00261,2025-09-28,phone,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0020,C02267,2025-12-15,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0021,C02200,2025-03-22,branch,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro. Isto não se faz.,negative
+R0022,C00014,2026-05-13,chat,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0023,C00732,2025-06-02,chat,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0024,C02495,2025-10-04,chat,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0025,C00003,2026-03-26,phone,Estou a considerar mudar para outro banco. Serviço cada vez pior. Isto não se faz.,negative
+R0026,C00981,2025-02-13,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0027,C00284,2026-01-28,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0028,C00526,2026-03-23,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Vou apresentar queixa no Banco de Portugal.,negative
+R0029,C01734,2026-01-22,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0030,C01277,2025-09-22,branch,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0031,C00496,2025-10-29,chat,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0032,C00943,2025-01-31,email,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar. Vou apresentar queixa no Banco de Portugal.,negative
+R0033,C00277,2025-02-06,chat,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0034,C00975,2026-01-06,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior. Já estou farto.,negative
+R0035,C02361,2025-04-08,app,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0036,C00398,2025-08-28,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0037,C00404,2025-02-25,email,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0038,C00785,2025-05-23,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0039,C01024,2025-08-15,chat,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0040,C00402,2026-05-12,app,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0041,C00969,2026-03-19,branch,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0042,C00241,2025-05-16,branch,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0043,C01169,2025-09-07,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0044,C00778,2025-10-05,app,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0045,C01285,2026-04-16,chat,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0046,C00645,2025-02-05,chat,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Já estou farto.,negative
+R0047,C00279,2026-04-28,chat,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0048,C01009,2025-08-03,chat,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0049,C02316,2025-06-10,email,A app não reconhece o meu Face ID. Já tentei de tudo. Vou apresentar queixa no Banco de Portugal.,negative
+R0050,C01088,2026-04-21,app,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0051,C00039,2025-02-07,chat,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0052,C00874,2026-03-28,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0053,C01001,2025-10-06,phone,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0054,C02167,2025-02-23,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Vou apresentar queixa no Banco de Portugal.,negative
+R0055,C01084,2025-03-21,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0056,C01155,2026-03-13,phone,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro. Vou apresentar queixa no Banco de Portugal.,negative
+R0057,C02071,2026-03-01,phone,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço. Isto não se faz.,negative
+R0058,C00181,2025-05-15,email,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0059,C01810,2025-02-27,app,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0060,C00611,2025-03-17,branch,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0061,C00523,2026-02-12,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0062,C01466,2025-07-01,chat,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0063,C01665,2026-04-19,email,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0064,C00666,2026-03-28,branch,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0065,C00102,2025-07-30,email,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0066,C01093,2025-01-20,branch,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0067,C00912,2026-02-25,email,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0068,C00914,2025-05-23,app,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0069,C01144,2026-03-08,chat,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0070,C01357,2026-03-26,phone,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0071,C00732,2025-08-11,phone,A app não reconhece o meu Face ID. Já tentei de tudo. Vou apresentar queixa no Banco de Portugal.,negative
+R0072,C01285,2025-04-08,phone,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Vou apresentar queixa no Banco de Portugal.,negative
+R0073,C00182,2026-02-17,chat,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0074,C00808,2026-04-17,phone,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0075,C01286,2025-06-03,chat,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0076,C01267,2025-06-01,chat,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0077,C00522,2026-04-08,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0078,C02332,2025-06-05,phone,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0079,C00861,2025-06-14,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0080,C01810,2026-02-11,email,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0081,C00348,2026-02-24,email,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0082,C01272,2025-05-06,branch,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Já estou farto.,negative
+R0083,C00299,2025-07-16,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem. Vou apresentar queixa no Banco de Portugal.,negative
+R0084,C01637,2026-03-17,app,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0085,C01742,2025-10-13,email,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0086,C00498,2025-10-14,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0087,C01300,2025-11-10,chat,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0088,C01748,2025-08-17,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0089,C01945,2025-05-22,chat,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0090,C01985,2026-01-01,phone,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0091,C00961,2025-02-11,email,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0092,C00618,2025-02-02,branch,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0093,C01670,2025-04-16,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0094,C01596,2026-04-30,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0095,C02359,2025-06-02,branch,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0096,C01717,2026-04-05,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0097,C02000,2025-07-19,phone,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0098,C01657,2025-11-15,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0099,C00111,2025-10-16,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0100,C00344,2025-04-04,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0101,C01066,2025-06-22,branch,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0102,C01140,2025-08-29,app,Aprovação de crédito negada sem explicação clara. Falta de transparência. Já estou farto.,negative
+R0103,C02210,2026-02-04,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Já estou farto.,negative
+R0104,C00128,2026-03-06,app,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0105,C00625,2025-10-16,email,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0106,C01905,2026-05-09,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Vou apresentar queixa no Banco de Portugal.,negative
+R0107,C00671,2025-10-24,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0108,C01278,2026-01-02,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0109,C00312,2026-03-12,chat,O processo de crédito habitação está a demorar meses. Inaceitável. Isto não se faz.,negative
+R0110,C00496,2026-02-05,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0111,C01423,2025-06-24,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Vou apresentar queixa no Banco de Portugal.,negative
+R0112,C01721,2025-08-10,phone,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0113,C01884,2026-05-10,phone,Aprovação de crédito negada sem explicação clara. Falta de transparência. Vou apresentar queixa no Banco de Portugal.,negative
+R0114,C02205,2026-01-10,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0115,C01100,2025-02-14,phone,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0116,C01847,2025-12-09,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0117,C01378,2025-07-01,phone,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro. Já estou farto.,negative
+R0118,C01395,2025-05-22,chat,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0119,C00042,2025-07-28,branch,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Vou apresentar queixa no Banco de Portugal.,negative
+R0120,C02275,2025-09-09,branch,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0121,C00071,2025-05-05,phone,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0122,C02383,2025-08-06,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0123,C01355,2025-04-29,app,A minha password foi alterada sem o meu consentimento. Segurança fraca. Isto não se faz.,negative
+R0124,C00789,2025-12-20,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0125,C00785,2026-05-16,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior. Vou apresentar queixa no Banco de Portugal.,negative
+R0126,C02445,2025-06-01,email,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0127,C01479,2025-03-06,phone,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0128,C00187,2025-05-30,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0129,C02011,2025-08-29,branch,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0130,C01805,2025-02-28,app,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço. Isto não se faz.,negative
+R0131,C01642,2025-01-28,email,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0132,C00612,2025-02-13,email,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0133,C00486,2026-02-09,chat,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0134,C00925,2025-08-15,phone,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0135,C02411,2025-10-19,chat,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0136,C00247,2025-04-17,email,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0137,C01084,2025-02-08,email,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente. Vou apresentar queixa no Banco de Portugal.,negative
+R0138,C00011,2025-01-17,email,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0139,C01181,2026-04-19,phone,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0140,C02416,2025-10-06,email,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0141,C00611,2025-02-06,app,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0142,C00680,2026-01-19,chat,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0143,C01183,2025-12-25,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0144,C01116,2025-11-03,app,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0145,C01770,2025-04-28,chat,Recebi spam do banco a oferecer produtos que não quero. Invasivo. Já estou farto.,negative
+R0146,C02405,2025-10-23,app,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0147,C00718,2025-04-03,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0148,C01786,2025-08-29,phone,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0149,C01673,2025-06-18,branch,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0150,C02030,2025-10-09,app,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0151,C01863,2026-05-12,branch,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0152,C02108,2025-12-03,chat,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0153,C01893,2025-11-15,branch,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0154,C01811,2026-04-20,phone,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Já estou farto.,negative
+R0155,C01795,2025-03-04,app,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0156,C02494,2025-06-09,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0157,C00057,2025-08-25,app,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato. Já estou farto.,negative
+R0158,C00631,2025-05-20,branch,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0159,C01977,2025-08-22,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0160,C00593,2026-03-27,email,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0161,C00286,2026-02-08,chat,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0162,C01095,2026-01-07,phone,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0163,C02405,2025-08-17,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0164,C01984,2025-07-13,branch,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0165,C01319,2025-10-20,branch,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0166,C00957,2025-01-23,phone,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0167,C01938,2025-12-06,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0168,C02029,2025-09-15,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0169,C01360,2025-02-21,chat,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0170,C01872,2025-12-02,email,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0171,C00307,2025-12-21,branch,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0172,C00329,2025-07-14,phone,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0173,C01999,2025-11-13,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0174,C00962,2026-01-18,app,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0175,C01778,2025-08-16,email,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0176,C01227,2025-06-16,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0177,C01202,2025-07-30,chat,Aprovação de crédito negada sem explicação clara. Falta de transparência. Vou apresentar queixa no Banco de Portugal.,negative
+R0178,C00738,2025-07-15,chat,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0179,C00987,2025-11-23,phone,A agência está sempre fechada ou com filas enormes. Digital não funciona bem. Isto não se faz.,negative
+R0180,C01883,2025-08-27,phone,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0181,C02239,2025-10-28,phone,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0182,C01738,2025-04-12,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0183,C01980,2025-10-22,phone,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0184,C01210,2026-03-19,app,O chat online só dá respostas automáticas inúteis. Quero falar com humano. Vou apresentar queixa no Banco de Portugal.,negative
+R0185,C02484,2025-04-28,chat,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0186,C01444,2025-12-14,email,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0187,C00398,2025-06-08,branch,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0188,C00137,2025-06-17,branch,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso. Isto não se faz.,negative
+R0189,C00720,2025-07-07,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0190,C02056,2025-05-12,branch,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0191,C01209,2025-08-28,app,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0192,C00577,2026-01-06,branch,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0193,C02283,2025-03-05,branch,O chat online só dá respostas automáticas inúteis. Quero falar com humano. Vou apresentar queixa no Banco de Portugal.,negative
+R0194,C01510,2026-02-26,phone,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0195,C00444,2025-06-17,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior. Vou apresentar queixa no Banco de Portugal.,negative
+R0196,C00907,2025-06-04,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0197,C00478,2025-09-10,app,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0198,C00399,2025-07-09,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Isto não se faz.,negative
+R0199,C01717,2025-12-02,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0200,C02005,2025-04-22,branch,A app não reconhece o meu Face ID. Já tentei de tudo. Isto não se faz.,negative
+R0201,C01822,2025-02-20,phone,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0202,C02231,2025-02-01,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0203,C01131,2026-02-26,branch,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0204,C00376,2025-01-26,phone,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0205,C00998,2025-04-16,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0206,C02271,2025-04-30,phone,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0207,C00605,2025-01-02,phone,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0208,C00593,2025-05-09,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0209,C00451,2026-02-09,email,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar. Isto não se faz.,negative
+R0210,C02412,2026-01-15,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente. Já estou farto.,negative
+R0211,C02155,2026-02-03,phone,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0212,C02103,2026-04-30,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0213,C00178,2025-11-26,app,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0214,C00250,2025-08-07,app,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0215,C02009,2025-06-14,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0216,C00608,2025-10-27,chat,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0217,C01332,2025-08-21,chat,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0218,C02480,2025-11-30,chat,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0219,C00881,2026-02-28,branch,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0220,C01634,2025-06-10,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0221,C01534,2025-02-04,app,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0222,C00350,2025-07-10,email,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0223,C02279,2025-12-10,app,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0224,C01683,2026-01-05,app,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0225,C01179,2025-04-19,email,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Vou apresentar queixa no Banco de Portugal.,negative
+R0226,C01976,2025-10-12,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0227,C00471,2026-03-09,chat,A agência está sempre fechada ou com filas enormes. Digital não funciona bem. Isto não se faz.,negative
+R0228,C02281,2025-12-26,phone,A app não reconhece o meu Face ID. Já tentei de tudo. Isto não se faz.,negative
+R0229,C01392,2025-10-17,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0230,C00286,2025-04-21,branch,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar. Vou apresentar queixa no Banco de Portugal.,negative
+R0231,C01720,2026-01-05,phone,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0232,C02325,2025-01-26,app,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço. Vou apresentar queixa no Banco de Portugal.,negative
+R0233,C01115,2025-08-15,branch,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0234,C01119,2025-02-26,phone,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Isto não se faz.,negative
+R0235,C02430,2025-11-03,app,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero. Isto não se faz.,negative
+R0236,C00032,2026-01-27,phone,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0237,C01186,2025-08-09,email,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0238,C00530,2026-03-03,phone,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0239,C00296,2025-08-24,app,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0240,C01283,2025-11-24,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0241,C01186,2025-03-29,chat,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0242,C01885,2025-02-15,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0243,C00434,2025-02-10,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0244,C01271,2025-03-28,app,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0245,C02091,2026-04-09,phone,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0246,C01439,2025-05-12,email,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso. Já estou farto.,negative
+R0247,C00711,2025-09-10,branch,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato. Vou apresentar queixa no Banco de Portugal.,negative
+R0248,C02310,2026-03-28,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0249,C01324,2025-03-19,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0250,C00280,2025-10-30,app,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0251,C01442,2025-01-20,app,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0252,C01511,2025-11-27,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0253,C02434,2026-05-04,app,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0254,C01843,2025-11-30,email,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0255,C01317,2025-08-19,app,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Já estou farto.,negative
+R0256,C01407,2025-09-16,email,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0257,C00161,2025-09-26,chat,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0258,C02498,2025-07-18,branch,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0259,C01386,2025-11-28,phone,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0260,C00270,2025-05-26,phone,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0261,C02469,2025-02-11,chat,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0262,C00580,2026-05-11,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0263,C00529,2025-07-12,phone,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0264,C00524,2025-08-05,chat,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Vou apresentar queixa no Banco de Portugal.,negative
+R0265,C01483,2025-06-24,branch,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero. Já estou farto.,negative
+R0266,C00787,2026-03-09,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso. Isto não se faz.,negative
+R0267,C02080,2026-03-25,chat,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Isto não se faz.,negative
+R0268,C00537,2026-01-30,chat,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso. Vou apresentar queixa no Banco de Portugal.,negative
+R0269,C00679,2025-12-13,email,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0270,C01820,2025-06-08,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0271,C00795,2025-08-25,phone,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0272,C01565,2026-02-23,email,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0273,C02477,2026-03-24,phone,A app não reconhece o meu Face ID. Já tentei de tudo. Isto não se faz.,negative
+R0274,C02272,2026-03-12,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0275,C01168,2025-03-17,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente. Vou apresentar queixa no Banco de Portugal.,negative
+R0276,C00376,2026-02-23,branch,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0277,C01432,2025-01-28,branch,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0278,C02057,2025-07-11,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0279,C00116,2025-11-29,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0280,C00599,2025-08-30,email,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0281,C01922,2025-01-10,phone,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0282,C00884,2026-04-27,chat,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0283,C02162,2025-01-25,email,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero. Já estou farto.,negative
+R0284,C01720,2025-02-26,branch,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0285,C02445,2026-01-03,email,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0286,C01194,2025-10-20,branch,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0287,C00768,2025-07-04,app,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0288,C02155,2025-07-19,branch,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0289,C00179,2025-07-02,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Já estou farto.,negative
+R0290,C01413,2026-01-12,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0291,C00547,2025-11-26,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0292,C01904,2025-11-20,email,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0293,C00553,2025-01-23,email,A minha password foi alterada sem o meu consentimento. Segurança fraca. Já estou farto.,negative
+R0294,C00172,2026-02-22,chat,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0295,C01940,2026-03-20,phone,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Já estou farto.,negative
+R0296,C01120,2025-07-24,branch,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0297,C01584,2025-09-12,phone,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0298,C02127,2025-02-10,branch,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0299,C02468,2025-10-07,phone,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0300,C01316,2025-06-06,branch,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro.,negative
+R0301,C02469,2025-06-29,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0302,C00174,2025-08-11,phone,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0303,C00235,2026-02-15,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0304,C00128,2025-08-13,app,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0305,C00518,2026-05-02,chat,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0306,C00133,2025-07-10,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0307,C00315,2025-06-10,phone,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0308,C01023,2026-01-12,email,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0309,C02045,2025-12-27,branch,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Isto não se faz.,negative
+R0310,C00879,2025-12-22,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0311,C00820,2026-04-06,branch,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0312,C00360,2025-12-08,phone,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0313,C00266,2026-03-12,email,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0314,C00714,2025-04-25,app,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0315,C00824,2026-02-09,branch,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0316,C00108,2026-02-16,chat,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0317,C00532,2026-01-03,branch,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato. Isto não se faz.,negative
+R0318,C02154,2025-02-07,email,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0319,C01299,2025-09-22,phone,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0320,C00526,2025-11-24,chat,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0321,C00746,2026-04-12,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0322,C00509,2026-04-24,email,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero. Isto não se faz.,negative
+R0323,C01418,2026-04-04,phone,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0324,C00324,2025-06-05,chat,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Vou apresentar queixa no Banco de Portugal.,negative
+R0325,C02186,2025-10-25,email,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0326,C00702,2026-04-19,chat,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0327,C00169,2025-02-11,app,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0328,C02363,2025-08-02,chat,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0329,C00125,2025-09-05,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Isto não se faz.,negative
+R0330,C01664,2025-03-22,branch,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0331,C01703,2025-03-15,phone,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude!,negative
+R0332,C01308,2025-03-08,phone,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0333,C02110,2025-05-17,branch,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro. Já estou farto.,negative
+R0334,C01016,2026-03-19,chat,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço. Isto não se faz.,negative
+R0335,C01713,2026-04-24,chat,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0336,C01281,2025-09-21,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0337,C02043,2025-01-12,app,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0338,C01611,2025-01-25,app,O processo de crédito habitação está a demorar meses. Inaceitável. Isto não se faz.,negative
+R0339,C01153,2026-03-10,app,Estou a considerar mudar para outro banco. Serviço cada vez pior. Já estou farto.,negative
+R0340,C01766,2026-01-27,branch,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0341,C01499,2025-04-10,phone,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0342,C02267,2026-01-27,chat,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0343,C01146,2025-12-15,chat,Recebi o cartão em 2 dias. Bom serviço.,positive
+R0344,C00487,2026-02-11,phone,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0345,C02285,2025-04-12,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0346,C02086,2026-01-01,phone,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço. Já estou farto.,negative
+R0347,C01941,2025-09-21,email,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0348,C01344,2025-03-25,branch,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0349,C01226,2025-09-30,branch,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0350,C02306,2025-12-11,app,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0351,C01707,2025-05-16,chat,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0352,C02366,2025-03-29,chat,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0353,C01558,2025-02-26,email,O processo de crédito habitação está a demorar meses. Inaceitável. Vou apresentar queixa no Banco de Portugal.,negative
+R0354,C00078,2025-04-15,branch,Aprovação de crédito negada sem explicação clara. Falta de transparência. Vou apresentar queixa no Banco de Portugal.,negative
+R0355,C02056,2026-01-12,app,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0356,C00566,2025-12-06,branch,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena.,negative
+R0357,C02153,2025-09-30,phone,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0358,C02238,2025-04-09,email,A app não reconhece o meu Face ID. Já tentei de tudo.,negative
+R0359,C01143,2025-06-02,phone,O processo de crédito habitação está a demorar meses. Inaceitável.,negative
+R0360,C00850,2025-06-28,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0361,C01121,2025-07-14,branch,A agência está sempre fechada ou com filas enormes. Digital não funciona bem.,negative
+R0362,C01414,2025-05-29,app,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0363,C01179,2025-06-27,branch,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0364,C01051,2025-05-19,chat,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Vou apresentar queixa no Banco de Portugal.,negative
+R0365,C01113,2025-05-03,email,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0366,C00208,2025-01-27,app,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso. Já estou farto.,negative
+R0367,C01693,2025-01-03,chat,Estou a considerar mudar para outro banco. Serviço cada vez pior. Já estou farto.,negative
+R0368,C00647,2025-04-13,phone,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0369,C01316,2025-02-15,chat,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0370,C00952,2025-03-31,branch,A app está sempre a falhar quando tento fazer transferências. Péssimo serviço.,negative
+R0371,C00721,2026-03-05,branch,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0372,C02030,2025-01-05,phone,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0373,C02327,2025-10-06,chat,Fui vítima de phishing e o banco não me ajudou a recuperar o dinheiro. Vou apresentar queixa no Banco de Portugal.,negative
+R0374,C02024,2026-03-12,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0375,C01918,2026-01-10,branch,O atendimento telefónico demora horas. Nunca me resolvem nada.,negative
+R0376,C01054,2026-02-09,phone,Estou muito insatisfeito com as taxas elevadas da conta. Quero cancelar.,negative
+R0377,C02326,2026-04-05,branch,Prometeram-me uma taxa preferencial e depois não cumpriram. Fraude! Vou apresentar queixa no Banco de Portugal.,negative
+R0378,C01752,2025-02-18,email,Fui cobrado duas vezes pelo mesmo serviço. Quero reembolso imediato.,negative
+R0379,C00576,2025-05-01,branch,O processo de crédito habitação está a demorar meses. Inaceitável. Isto não se faz.,negative
+R0380,C01094,2025-10-26,chat,O gestor de conta foi muito prestável e resolveu o meu problema.,positive
+R0381,C00047,2025-02-01,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco.,negative
+R0382,C01907,2026-04-18,phone,O chat online só dá respostas automáticas inúteis. Quero falar com humano.,negative
+R0383,C00481,2025-04-24,email,Quero fechar a conta porque o vosso serviço de apoio ao cliente é zero.,negative
+R0384,C00548,2025-11-07,phone,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0385,C01704,2026-02-15,email,Estou a considerar mudar para outro banco. Serviço cada vez pior.,negative
+R0386,C01014,2025-02-11,chat,Recebi spam do banco a oferecer produtos que não quero. Invasivo.,negative
+R0387,C01830,2025-02-27,app,As comissões aumentaram sem qualquer aviso prévio. Vou mudar de banco. Vou apresentar queixa no Banco de Portugal.,negative
+R0388,C02244,2025-10-21,chat,A app está cada vez melhor. Gosto das novas funcionalidades.,positive
+R0389,C00614,2025-12-15,email,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0390,C02389,2025-01-29,branch,O extrato tem erros de lançamento. Já reclamei 3 vezes sem sucesso.,negative
+R0391,C00541,2025-10-14,branch,A minha password foi alterada sem o meu consentimento. Segurança fraca.,negative
+R0392,C01263,2026-01-17,email,O chat online só dá respostas automáticas inúteis. Quero falar com humano. Já estou farto.,negative
+R0393,C02369,2025-02-02,chat,Aprovação de crédito negada sem explicação clara. Falta de transparência.,negative
+R0394,C00247,2026-04-24,branch,O processo de abertura de conta foi rápido e simples. Obrigado.,positive
+R0395,C00130,2026-01-28,branch,A minha conta foi bloqueada sem aviso. Preciso de ajuda urgente.,negative
+R0396,C01534,2025-08-18,branch,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0397,C01539,2025-03-02,email,Taxa de juro do crédito pessoal muito acima do mercado. Não vale a pena. Isto não se faz.,negative
+R0398,C02201,2025-04-25,app,Recebi um cartão que não pedi e agora tenho anuidade. Isto é abuso.,negative
+R0399,C00094,2025-12-11,chat,Transferências instantâneas funcionam perfeitamente. Excelente.,positive
+R0400,C01738,2025-03-21,phone,O processo de crédito habitação está a demorar meses. Inaceitável. Isto não se faz.,negative
