@@ -12,3 +12,5 @@ python-dotenv
 joblib
 pydantic
 requests
+azure-ai-projects
+azure-identity

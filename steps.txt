@@ -13,6 +13,8 @@ http://127.0.0.1:8000/docs
 -- Launch App
 python -m app.test_retention
 
+python -m tests.test_foundry_agent
+
 -- Git
 git init
 git remote add origin https://github.com/SEU_USERNAME/ai_bank_churn.git
@@ -21,3 +23,8 @@ git push -u origin main
 
 git add .
 git commit -m "First commit for the ai bank churn"
+
+-- Foundry no VSCode
+winget install -e --id Microsoft.AzureCLI
+az --version
+az login
