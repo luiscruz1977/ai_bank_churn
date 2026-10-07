@@ -5,6 +5,7 @@ matplotlib
 seaborn
 fastapi
 uvicorn[standard]
+gunicorn
 streamlit
 sqlalchemy
 python-dotenv

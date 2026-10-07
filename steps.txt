@@ -10,5 +10,14 @@ pip install -r requirements.txt
 uvicorn app.api:app --reload
 http://127.0.0.1:8000/docs
 
--- Launc App
+-- Launch App
 python -m app.test_retention
+
+-- Git
+git init
+git remote add origin https://github.com/SEU_USERNAME/ai_bank_churn.git
+git branch -M main
+git push -u origin main
+
+git add .
+git commit -m "First commit for the ai bank churn"
