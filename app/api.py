@@ -78,6 +78,7 @@ class AnalyzeRequest(BaseModel):
 @app.post("/analyze")
 def analyze_customer_request(payload: AnalyzeRequest):
 
+    # 1. Get customer
     with engine.connect() as connection:
         customer = connection.execute(
             text("""
@@ -88,24 +89,108 @@ def analyze_customer_request(payload: AnalyzeRequest):
             {"customer_id": payload.customer_id}
         ).mappings().first()
 
-        if not customer:
-            raise HTTPException(
-                status_code=404,
-                detail="Customer not found"
-            )
+    if not customer:
+        raise HTTPException(
+            status_code=404,
+            detail="Customer not found"
+        )
 
     customer_data = dict(customer)
 
+    # 2. Calculate churn
     churn_result = predict_churn(customer_data)
 
-    result = analyze_customer(
-        customer=customer_data,
-        churn=churn_result,
-        complaint=payload.complaint
-    )
+    # 3. Create retention request immediately
+    with engine.begin() as connection:
+        request_id = connection.execute(
+            text("""
+                INSERT INTO retention_requests
+                (
+                    customer_id,
+                    action_type,
+                    description,
+                    currency,
+                    reason,
+                    status,
+                    segment,
+                    risk,
+                    created_at
+                )
+                VALUES
+                (
+                    :customer_id,
+                    :action_type,
+                    :description,
+                    :currency,
+                    :reason,
+                    :status,
+                    :segment,
+                    :risk,
+                    CURRENT_TIMESTAMP
+                )
+                RETURNING id
+            """),
+            {
+                "customer_id": payload.customer_id,
+                "action_type": "AI_ANALYSIS",
+                "description": payload.complaint,
+                "currency": "EUR",
+                "reason": "Customer complaint",
+                "status": "PENDING",
+                "segment": "CUSTOMER",
+                "risk": churn_result["risk"]
+            }
+        ).scalar_one()
 
-    return {
-        "customer_id": payload.customer_id,
-        "churn": churn_result,
-        "analysis": result
-    }
+    # 4. Try Foundry
+    try:
+        result = analyze_customer(
+            customer=customer_data,
+            churn=churn_result,
+            complaint=payload.complaint
+        )
+
+        # 5. Foundry succeeded
+        with engine.begin() as connection:
+            connection.execute(
+                text("""
+                    UPDATE retention_requests
+                    SET status = 'COMPLETED',
+                        description = :description
+                    WHERE id = :id
+                """),
+                {
+                    "id": request_id,
+                    "description": f"{payload.complaint}\n\nAI Analysis: {result}"
+                }
+            )
+
+        return {
+            "customer_id": payload.customer_id,
+            "request_id": request_id,
+            "churn": churn_result,
+            "analysis": result,
+            "status": "COMPLETED"
+        }
+
+    except Exception as e:
+
+        # 6. Foundry failed, but request remains stored
+        with engine.begin() as connection:
+            connection.execute(
+                text("""
+                    UPDATE retention_requests
+                    SET status = 'FAILED'
+                    WHERE id = :id
+                """),
+                {"id": request_id}
+            )
+
+        return {
+            "customer_id": payload.customer_id,
+            "request_id": request_id,
+            "churn": churn_result,
+            "analysis": None,
+            "status": "FAILED",
+            "error": str(e)
+        }
