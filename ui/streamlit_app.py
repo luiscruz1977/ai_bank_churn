@@ -78,6 +78,20 @@ if st.button("Analyse Customer"):
 
             st.write(complaint)
 
-            st.info(
-                "AI analysis will be added with Microsoft Foundry."
+            st.subheader("🤖 AI Analysis")
+
+            analysis_response = requests.post(
+                f"{API_URL}/analyze",
+                json={
+                    "customer_id": customer_id,
+                    "complaint": complaint
+                }
             )
+
+            if analysis_response.status_code != 200:
+                st.error("Error communicating with Foundry Agent.")
+
+            else:
+                analysis_data = analysis_response.json()
+
+                st.write(analysis_data["analysis"])
