@@ -1,5 +1,8 @@
 from datetime import datetime
 
+from app.database import SessionLocal
+from app.models import RetentionRequest
+
 from sqlalchemy import create_engine, text
 
 from app.churn import predict_churn
@@ -138,12 +141,33 @@ def trigger_retention_action(
                 "reason": "Voucher requires explicit human approval."
             }
 
-    return {
-        "status": "pending",
-        "customer_id": customer_id,
-        "action_type": action_type,
-        "details": details,
-        "segment": segment,
-        "risk": risk,
-        "created_at": datetime.utcnow().isoformat()
-    }
+    session = SessionLocal()
+
+    try:
+        retention_request = RetentionRequest(
+            customer_id=customer_id,
+            action_type=action_type,
+            ##amount=details.get("amount", 0),
+            currency=details.get("currency", "EUR"),
+            reason=details.get("reason", ""),
+            status="pending",
+            segment=segment,
+            risk=risk,
+            created_at=datetime.utcnow()
+        )
+
+        session.add(retention_request)
+        session.commit()
+        session.refresh(retention_request)
+
+        return {
+            "status": "pending",
+            "customer_id": customer_id,
+            "action_type": action_type,
+            "details": details,
+            "segment": segment,
+            "risk": risk,
+            "created_at": datetime.utcnow().isoformat()
+        }
+    finally:
+        session.close()

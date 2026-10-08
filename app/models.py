@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
 from .database import Base
 
 
@@ -25,7 +25,23 @@ class Complaint(Base):
 
     complaint_id = Column(String, primary_key=True)
     customer_id = Column(String, ForeignKey("customers.customer_id"))
-    date = Column(Date)
+    date = Column(DateTime)
     channel = Column(String)
     text = Column(String)
     sentiment = Column(String)
+
+class RetentionRequest(Base):
+    __tablename__ = "retention_requests"
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    customer_id = Column(String, ForeignKey("customers.customer_id"))
+    action_type = Column(String)
+    description = Column(String)
+    currency = Column(String)
+    reason = Column(String)
+    status = Column(String)
+    segment = Column(String)
+    risk = Column(String)
+    created_at = Column(DateTime)
+    aproved_at = Column(DateTime, nullable=True)
+    executed_at = Column(DateTime, nullable=True)
