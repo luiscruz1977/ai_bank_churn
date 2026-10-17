@@ -39,6 +39,12 @@ if "selected_retention_request_id" not in st.session_state:
 if "retention_requests_page" not in st.session_state:
     st.session_state["retention_requests_page"] = 1
 
+if "customer_id_input" not in st.session_state:
+    st.session_state["customer_id_input"] = ""
+
+if "complaint_input" not in st.session_state:
+    st.session_state["complaint_input"] = ""
+
 RETENTION_REQUESTS_PAGE_SIZE = 5
 
 
@@ -133,31 +139,61 @@ st.markdown(
 # INPUT FORM
 # --------------------------------------------------
 
-with st.form("customer_analysis_form", clear_on_submit=True):
+def queue_customer_analysis():
+    customer_id = st.session_state["customer_id_input"]
+    complaint = st.session_state["complaint_input"]
+    st.session_state["pending_analysis_customer_id"] = customer_id
+    st.session_state["pending_analysis_complaint"] = complaint
+
+    if not customer_id or complaint:
+        st.session_state["customer_id_input"] = ""
+        st.session_state["complaint_input"] = ""
+
+
+def queue_retention_requests_lookup():
+    st.session_state["pending_retention_requests_customer_id"] = (
+        st.session_state["customer_id_input"]
+    )
+    st.session_state["customer_id_input"] = ""
+    st.session_state["complaint_input"] = ""
+
+
+with st.form("customer_analysis_form", clear_on_submit=False):
 
     customer_id = st.text_input(
-        "Customer ID"
+        "Customer ID",
+        key="customer_id_input"
     )
 
     complaint = st.text_area(
         "Customer Complaint",
-        height=75
+        height=75,
+        key="complaint_input"
     )
 
     analyse_col, retention_col = st.columns(2, gap="small")
 
     with analyse_col:
         submitted = st.form_submit_button(
-            "Analyse Customer"
+            "Analyse Customer",
+            on_click=queue_customer_analysis
         )
 
     with retention_col:
         view_retention_requests_submitted = st.form_submit_button(
-            "View Retention Requests"
+            "View Retention Requests",
+            on_click=queue_retention_requests_lookup
         )
+
+customer_id = st.session_state["customer_id_input"]
+complaint = st.session_state["complaint_input"]
 
 
 if view_retention_requests_submitted:
+    customer_id = st.session_state.pop(
+        "pending_retention_requests_customer_id",
+        customer_id
+    )
 
     if not customer_id:
 
@@ -213,6 +249,14 @@ if view_retention_requests_submitted:
 # --------------------------------------------------
 
 if submitted:
+    customer_id = st.session_state.pop(
+        "pending_analysis_customer_id",
+        customer_id
+    )
+    complaint = st.session_state.pop(
+        "pending_analysis_complaint",
+        complaint
+    )
 
     if not customer_id:
 
@@ -371,10 +415,6 @@ if st.session_state["customer_loaded"]:
     # --------------------------------------------------
     # COMPLAINT HISTORY
     # --------------------------------------------------
-
-    if st.button("View Complaint History"):
-        st.session_state["show_history"] = True
-
 
     if st.session_state["show_history"]:
 
