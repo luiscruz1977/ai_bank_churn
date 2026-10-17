@@ -47,7 +47,6 @@ if "complaint_input" not in st.session_state:
 
 RETENTION_REQUESTS_PAGE_SIZE = 5
 
-
 st.set_page_config(
     page_title="Bank Churn AI",
     page_icon="🏦"
@@ -62,6 +61,9 @@ st.markdown(
     }
     .st-key-retention_requests_list [data-testid="stVerticalBlock"] {
         gap: 0.25rem;
+    }
+    .st-key-customer_metric_values [data-testid="stMetricValue"] {
+        font-size: 1.25rem;
     }
     </style>
     """,
@@ -139,6 +141,9 @@ st.markdown(
 # INPUT FORM
 # --------------------------------------------------
 
+main_col, summary_col = st.columns([1.15, 1], gap="large")
+
+
 def queue_customer_analysis():
     customer_id = st.session_state["customer_id_input"]
     complaint = st.session_state["complaint_input"]
@@ -158,32 +163,33 @@ def queue_retention_requests_lookup():
     st.session_state["complaint_input"] = ""
 
 
-with st.form("customer_analysis_form", clear_on_submit=False):
+with main_col:
+    with st.form("customer_analysis_form", clear_on_submit=False):
 
-    customer_id = st.text_input(
-        "Customer ID",
-        key="customer_id_input"
-    )
-
-    complaint = st.text_area(
-        "Customer Complaint",
-        height=75,
-        key="complaint_input"
-    )
-
-    analyse_col, retention_col = st.columns(2, gap="small")
-
-    with analyse_col:
-        submitted = st.form_submit_button(
-            "Analyse Customer",
-            on_click=queue_customer_analysis
+        customer_id = st.text_input(
+            "Customer ID",
+            key="customer_id_input"
         )
 
-    with retention_col:
-        view_retention_requests_submitted = st.form_submit_button(
-            "View Retention Requests",
-            on_click=queue_retention_requests_lookup
+        complaint = st.text_area(
+            "Customer Complaint",
+            height=75,
+            key="complaint_input"
         )
+
+        analyse_col, retention_col = st.columns(2, gap="small")
+
+        with analyse_col:
+            submitted = st.form_submit_button(
+                "Analyse Customer",
+                on_click=queue_customer_analysis
+            )
+
+        with retention_col:
+            view_retention_requests_submitted = st.form_submit_button(
+                "View Requests",
+                on_click=queue_retention_requests_lookup
+            )
 
 customer_id = st.session_state["customer_id_input"]
 complaint = st.session_state["complaint_input"]
@@ -327,43 +333,49 @@ if submitted:
 # DISPLAY CUSTOMER
 # --------------------------------------------------
 
-if st.session_state["customer_loaded"]:
+customer_loaded = st.session_state["customer_loaded"]
+customer = st.session_state["current_customer"] or {}
+customer_id = st.session_state["current_customer_id"]
+churn = st.session_state["current_churn"] or {}
 
-    customer_id = st.session_state["current_customer_id"]
-    customer = st.session_state["current_customer"]
-    churn = st.session_state["current_churn"]
-
+with summary_col:
     # --------------------------------------------------
     # CUSTOMER
     # --------------------------------------------------
 
-    st.subheader(
-        f"Customer - {customer_id}"
+    st.markdown(
+        f'<h3 style="color: #4DA3FF; font-size: 1.25rem; font-weight: 600;">'
+        f'{f"Customer - {customer_id}" if customer_loaded else "Customer"}'
+        f'</h3>',
+        unsafe_allow_html=True
     )
 
-    col1, col2, col3 = st.columns(3)
+    with st.container(key="customer_metric_values"):
+        col1, col2, col3 = st.columns(3)
 
-    col1.metric(
-        "Age",
-        customer["age"]
-    )
+        col1.metric(
+            "Age",
+            customer.get("age", "")
+        )
 
-    col2.metric(
-        "Balance",
-        f"€{customer['balance']:,.2f}"
-    )
+        col2.metric(
+            "Balance",
+            f"€{customer['balance']:,.2f}" if customer_loaded else ""
+        )
 
-    col3.metric(
-        "Products",
-        customer["num_products"]
-    )
+        col3.metric(
+            "Products",
+            customer.get("num_products", "")
+        )
 
 
     # --------------------------------------------------
     # CHURN PREDICTION
     # --------------------------------------------------
 
-    risk = churn["risk"].upper()
+    risk = churn.get("risk", "").upper()
+    risk_color = "gray"
+    risk_icon = ""
 
     if risk == "HIGH":
 
@@ -373,13 +385,17 @@ if st.session_state["customer_loaded"]:
     elif risk == "LOW":
 
         risk_color = "green"
-        risk_icon = ""
 
-    else:
+    elif customer_loaded:
 
         risk_color = "orange"
-        risk_icon = ""
 
+    churn_probability = (
+        f"{churn['churn_probability']:.1%}"
+        if customer_loaded
+        else ""
+    )
+    risk_value = risk if customer_loaded else ""
 
     st.subheader(
         f"{risk_icon} Churn Prediction"
@@ -394,7 +410,7 @@ if st.session_state["customer_loaded"]:
         f'<div style="font-size: 32px; '
         f'font-weight: bold; '
         f'color: {risk_color};">'
-        f'{churn["churn_probability"]:.1%}'
+        f'{churn_probability}'
         f'</div>',
         unsafe_allow_html=True
     )
@@ -406,10 +422,13 @@ if st.session_state["customer_loaded"]:
         f'<div style="font-size: 32px; '
         f'font-weight: bold; '
         f'color: {risk_color};">'
-        f'{risk}'
+        f'{risk_value}'
         f'</div>',
         unsafe_allow_html=True
     )
+
+
+if customer_loaded:
 
 
     # --------------------------------------------------
