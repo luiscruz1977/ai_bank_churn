@@ -36,6 +36,11 @@ if "show_retention_requests" not in st.session_state:
 if "selected_retention_request_id" not in st.session_state:
     st.session_state["selected_retention_request_id"] = None
 
+if "retention_requests_page" not in st.session_state:
+    st.session_state["retention_requests_page"] = 1
+
+RETENTION_REQUESTS_PAGE_SIZE = 5
+
 
 st.set_page_config(
     page_title="Bank Churn AI",
@@ -43,7 +48,17 @@ st.set_page_config(
 )
 
 st.markdown(
-    "<style>.block-container { padding-top: 2rem; }</style>",
+    """
+    <style>
+    .block-container { padding-top: 1rem; }
+    .st-key-customer_analysis_form [data-testid="stHorizontalBlock"] {
+        gap: 15px !important;
+    }
+    .st-key-retention_requests_list [data-testid="stVerticalBlock"] {
+        gap: 0.25rem;
+    }
+    </style>
+    """,
     unsafe_allow_html=True
 )
 
@@ -99,7 +114,7 @@ st.markdown(
     """
     <h1 style="
         color: #4DA3FF;
-        font-weight: 700;
+        font-weight: 500;
         text-align: center;
     ">
         🏦 Bank Churn AI
@@ -126,7 +141,7 @@ with st.form("customer_analysis_form", clear_on_submit=True):
 
     complaint = st.text_area(
         "Customer Complaint",
-        height=150
+        height=75
     )
 
     analyse_col, retention_col = st.columns(2, gap="small")
@@ -187,6 +202,7 @@ if view_retention_requests_submitted:
                 )
                 st.session_state["show_retention_requests"] = True
                 st.session_state["selected_retention_request_id"] = None
+                st.session_state["retention_requests_page"] = 1
 
         except requests.RequestException as error:
             st.error(f"Could not load retention requests: {error}")
@@ -238,6 +254,7 @@ if submitted:
             st.session_state["current_retention_requests"] = []
             st.session_state["show_retention_requests"] = False
             st.session_state["selected_retention_request_id"] = None
+            st.session_state["retention_requests_page"] = 1
 
             # --------------------------------------------------
             # AI ANALYSIS
@@ -406,47 +423,94 @@ if st.session_state["customer_loaded"]:
 
         else:
 
-            header = st.columns([2.1, 1.0, 1.6, 1.3, 0.55])
-            header[0].markdown("**Request**")
-            header[1].markdown("**Status**")
-            header[2].markdown("**Created**")
-            header[3].markdown("**Segment / Risk**")
-            header[4].markdown("**Info**")
+            total_pages = max(
+                1,
+                (len(retention_requests) + RETENTION_REQUESTS_PAGE_SIZE - 1)
+                // RETENTION_REQUESTS_PAGE_SIZE
+            )
+            current_page = min(
+                max(st.session_state["retention_requests_page"], 1),
+                total_pages
+            )
+            st.session_state["retention_requests_page"] = current_page
+            start_index = (current_page - 1) * RETENTION_REQUESTS_PAGE_SIZE
+            page_requests = retention_requests[
+                start_index:start_index + RETENTION_REQUESTS_PAGE_SIZE
+            ]
 
-            for request_item in retention_requests:
+            with st.container(key="retention_requests_list"):
+                header = st.columns([2.1, 1.0, 1.6, 1.3, 0.55])
+                header[0].markdown("**Request**")
+                header[1].markdown("**Status**")
+                header[2].markdown("**Created**")
+                header[3].markdown("**Segment / Risk**")
+                header[4].markdown("**Info**")
 
-                action_type = request_item.get("action_type", "Unknown")
-                if action_type == "AI_ANALYSIS":
-                    action_label = "AI analysis"
-                else:
-                    action_label = action_type.replace("_", " ").title()
+                for request_item in page_requests:
 
-                row = st.columns([2.1, 1.0, 1.6, 1.3, 0.55], vertical_alignment="center")
-                row[0].write(action_label)
-                row[1].write(request_item.get("status", "Unknown"))
-                row[2].write(str(request_item.get("created_at", "N/A"))[:16])
-                row[3].write(
-                    f"{request_item.get('segment', 'N/A')} / "
-                    f"{request_item.get('risk', 'N/A')}"
-                )
+                    action_type = request_item.get("action_type", "Unknown")
+                    if action_type == "AI_ANALYSIS":
+                        action_label = "AI analysis"
+                    else:
+                        action_label = action_type.replace("_", " ").title()
 
-                request_id = request_item.get("id")
-                if row[4].button(
-                    "View",
-                    key=f"retention_request_details_{request_id}",
-                    help=f"Show details for request #{request_id}"
-                ):
-                    current_id = st.session_state["selected_retention_request_id"]
-                    st.session_state["selected_retention_request_id"] = (
-                        None if current_id == request_id else request_id
+                    row = st.columns(
+                        [2.1, 1.0, 1.6, 1.3, 0.55],
+                        vertical_alignment="center"
+                    )
+                    row[0].write(action_label)
+                    row[1].write(request_item.get("status", "Unknown"))
+                    row[2].write(str(request_item.get("created_at", "N/A"))[:16])
+                    row[3].write(
+                        f"{request_item.get('segment', 'N/A')} / "
+                        f"{request_item.get('risk', 'N/A')}"
                     )
 
-                st.divider()
+                    request_id = request_item.get("id")
+                    if row[4].button(
+                        "Ver",
+                        key=f"retention_request_details_{request_id}",
+                        help=f"Show details for request #{request_id}"
+                    ):
+                        current_id = st.session_state["selected_retention_request_id"]
+                        st.session_state["selected_retention_request_id"] = (
+                            None if current_id == request_id else request_id
+                        )
+
+            previous_col, page_col, next_col = st.columns([1, 2, 1])
+
+            with previous_col:
+                if st.button(
+                    "Previous",
+                    key="retention_requests_previous_page",
+                    disabled=current_page == 1
+                ):
+                    st.session_state["retention_requests_page"] = current_page - 1
+                    st.session_state["selected_retention_request_id"] = None
+                    st.rerun()
+
+            with page_col:
+                st.markdown(
+                    f"<div style='text-align: center; padding-top: 0.4rem;'>"
+                    f"Page {current_page} of {total_pages}"
+                    f"</div>",
+                    unsafe_allow_html=True
+                )
+
+            with next_col:
+                if st.button(
+                    "Next",
+                    key="retention_requests_next_page",
+                    disabled=current_page == total_pages
+                ):
+                    st.session_state["retention_requests_page"] = current_page + 1
+                    st.session_state["selected_retention_request_id"] = None
+                    st.rerun()
 
             selected_request = next(
                 (
                     request_item
-                    for request_item in retention_requests
+                    for request_item in page_requests
                     if request_item.get("id")
                     == st.session_state["selected_retention_request_id"]
                 ),
