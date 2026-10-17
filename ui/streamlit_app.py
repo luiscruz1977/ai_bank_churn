@@ -42,6 +42,11 @@ st.set_page_config(
     page_icon="🏦"
 )
 
+st.markdown(
+    "<style>.block-container { padding-top: 2rem; }</style>",
+    unsafe_allow_html=True
+)
+
 
 def clear_selected_retention_request():
     st.session_state["selected_retention_request_id"] = None
@@ -124,9 +129,67 @@ with st.form("customer_analysis_form", clear_on_submit=True):
         height=150
     )
 
-    submitted = st.form_submit_button(
-        "Analyse Customer"
-    )
+    analyse_col, retention_col = st.columns(2, gap="small")
+
+    with analyse_col:
+        submitted = st.form_submit_button(
+            "Analyse Customer"
+        )
+
+    with retention_col:
+        view_retention_requests_submitted = st.form_submit_button(
+            "View Retention Requests"
+        )
+
+
+if view_retention_requests_submitted:
+
+    if not customer_id:
+
+        st.warning("Please enter a Customer ID.")
+
+    else:
+
+        try:
+            customer_response = requests.get(
+                f"{API_URL}/customers/{customer_id}",
+                timeout=10
+            )
+
+            if customer_response.status_code == 404:
+
+                st.error("Customer not found.")
+
+            elif customer_response.status_code != 200:
+
+                st.error("Error loading customer information.")
+
+            else:
+
+                retention_response = requests.get(
+                    f"{API_URL}/customers/{customer_id}/retention-requests",
+                    timeout=10
+                )
+                retention_response.raise_for_status()
+
+                data = customer_response.json()
+                if st.session_state["current_customer_id"] != customer_id:
+                    st.session_state["analysis_data"] = None
+
+                st.session_state["current_customer_id"] = customer_id
+                st.session_state["current_customer"] = data["customer"]
+                st.session_state["current_churn"] = data["churn"]
+                st.session_state["current_complaints"] = data.get("complaints", [])
+                st.session_state["customer_loaded"] = True
+                st.session_state["show_history"] = False
+                st.session_state["current_retention_requests"] = (
+                    retention_response.json().get("retention_requests", [])
+                )
+                st.session_state["show_retention_requests"] = True
+                st.session_state["selected_retention_request_id"] = None
+
+        except requests.RequestException as error:
+            st.error(f"Could not load retention requests: {error}")
 
 
 # --------------------------------------------------
@@ -292,28 +355,8 @@ if st.session_state["customer_loaded"]:
     # COMPLAINT HISTORY
     # --------------------------------------------------
 
-    history_col, retention_col = st.columns(2)
-
-    with history_col:
-        if st.button("View Complaint History"):
-            st.session_state["show_history"] = True
-
-    with retention_col:
-        if st.button("View Retention Requests"):
-            try:
-                response = requests.get(
-                    f"{API_URL}/customers/{customer_id}/retention-requests",
-                    timeout=10
-                )
-                response.raise_for_status()
-                st.session_state["current_retention_requests"] = response.json().get(
-                    "retention_requests",
-                    []
-                )
-                st.session_state["show_retention_requests"] = True
-                st.session_state["selected_retention_request_id"] = None
-            except requests.RequestException as error:
-                st.error(f"Could not load retention requests: {error}")
+    if st.button("View Complaint History"):
+        st.session_state["show_history"] = True
 
 
     if st.session_state["show_history"]:
