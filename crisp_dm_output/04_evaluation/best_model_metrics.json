@@ -1,0 +1,9 @@
+{
+  "model": "Logistic Regression",
+  "test_auc": 0.6369459630681151,
+  "test_recall": 0.5412844036697247,
+  "test_precision": 0.28921568627450983,
+  "test_f1": 0.3769968051118211,
+  "test_mcc": 0.14319019107085285,
+  "test_accuracy": 0.61
+}

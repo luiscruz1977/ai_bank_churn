@@ -1,0 +1,117 @@
+BANK CHURN AI, CRISP-DM ANALYSIS
+================================
+
+DATASET
+-------
+Rows: 2,500
+Columns: 13
+Target: churn
+Target class 0: 1,957
+Target class 1: 543
+
+DATA QUALITY
+------------
+Missing values: 0
+Duplicate rows: 0
+
+DATA PREPARATION
+----------------
+The customer_id identifier was excluded from predictive modelling.
+
+Missing value handling is implemented inside the model pipeline.
+This prevents data leakage because imputation is fitted only on the
+training data of each cross-validation fold.
+
+Categorical variables are one-hot encoded.
+
+Numerical variables are imputed with the median when necessary and
+standardised for models that benefit from scaling.
+
+Outliers were analysed using the IQR rule. No observations were
+automatically removed because extreme customer values may represent
+legitimate banking behaviour.
+
+MODEL COMPARISON
+----------------
+Models evaluated:
+* Logistic Regression
+* Random Forest
+* SVM
+* Neural Network
+* Naive Bayes
+
+Validation:
+Stratified 10-fold cross-validation on the training set.
+
+PRIMARY MODEL SELECTION
+-----------------------
+The primary ranking criterion is MCC, followed by F1, Recall and AUC.
+
+Selected model:
+Logistic Regression
+
+Cross-validation results for selected model:
+AUC      = 0.6409
+Recall   = 0.5826
+F1       = 0.3860
+MCC      = 0.1549
+Accuracy = 0.5990
+
+FINAL TEST SET
+--------------
+The final test set was not used during cross-validation or model
+selection.
+
+Selected model:
+Logistic Regression
+
+Test AUC      = 0.6369
+Test Recall   = 0.5413
+Test Precision= 0.2892
+Test F1       = 0.3770
+Test MCC      = 0.1432
+Test Accuracy = 0.6100
+
+INTERPRETATION
+--------------
+The selected model should not be judged using Accuracy alone.
+For customer churn, Recall is important because missing a customer
+who is likely to churn can reduce the opportunity for a retention
+action. MCC and F1 provide additional information about the balance
+of the classification results.
+
+The ROC curve, confusion matrix and threshold analysis should be
+reviewed before selecting an operational probability threshold.
+
+OUTPUTS
+-------
+The script generates:
+
+01_data_understanding/
+    Data profile
+    Missing values analysis
+    Target distribution
+    Numeric distributions
+    Categorical distributions
+    Correlation matrix
+    Strong correlation report
+
+02_data_preparation/
+    Outlier analysis
+    Boxplots
+    Prepared dataset
+    Preparation decisions
+
+03_modeling/
+    10-fold cross-validation results
+    Model comparison chart
+
+04_evaluation/
+    Test set metrics
+    ROC curves
+    Confusion matrices
+    Threshold analysis
+    Feature importance
+
+05_model_artifact/
+    Final fitted model

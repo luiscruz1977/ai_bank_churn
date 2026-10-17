@@ -1,0 +1,35 @@
+DATA PREPARATION DECISIONS
+
+Original rows: 2500
+Original columns: 13
+Duplicates found: 0
+Rows after duplicate handling: 2500
+Missing cells before modelling: 0
+
+Identifier excluded from modelling:
+  customer_id
+
+Target:
+  churn
+
+Numeric features:
+  age
+  tenure_months
+  num_products
+  balance
+  credit_score
+  is_active_member
+  estimated_salary
+  has_credit_card
+  num_transactions_last_month
+  support_tickets_last_6m
+
+Categorical features:
+  gender
+
+Outliers:
+  Outliers were identified using the IQR rule.
+  No observations are automatically removed because an extreme
+  customer value may represent a legitimate banking behaviour.
+  The model pipeline handles preprocessing without changing the
+  original dataset.

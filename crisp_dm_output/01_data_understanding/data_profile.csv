@@ -1,0 +1,14 @@
+column,dtype,non_null,missing,missing_pct,unique
+customer_id,str,2500,0,0.0,2500
+age,int64,2500,0,0.0,53
+gender,str,2500,0,0.0,2
+tenure_months,int64,2500,0,0.0,119
+num_products,int64,2500,0,0.0,4
+balance,float64,2500,0,0.0,2490
+credit_score,int64,2500,0,0.0,543
+is_active_member,int64,2500,0,0.0,2
+estimated_salary,float64,2500,0,0.0,2389
+has_credit_card,int64,2500,0,0.0,2
+num_transactions_last_month,int64,2500,0,0.0,23
+support_tickets_last_6m,int64,2500,0,0.0,8
+churn,int64,2500,0,0.0,2

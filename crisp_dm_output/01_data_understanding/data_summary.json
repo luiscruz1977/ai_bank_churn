@@ -1,0 +1,25 @@
+{
+  "rows": 2500,
+  "columns": 13,
+  "duplicates": 0,
+  "missing_cells": 0,
+  "target_positive_count": 543,
+  "target_negative_count": 1957,
+  "target_positive_pct": 21.72,
+  "target_negative_pct": 78.28,
+  "numeric_variables": [
+    "age",
+    "tenure_months",
+    "num_products",
+    "balance",
+    "credit_score",
+    "is_active_member",
+    "estimated_salary",
+    "has_credit_card",
+    "num_transactions_last_month",
+    "support_tickets_last_6m"
+  ],
+  "categorical_variables": [
+    "gender"
+  ]
+}

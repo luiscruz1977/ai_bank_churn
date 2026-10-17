@@ -1,0 +1,14 @@
+,missing_count,missing_pct
+customer_id,0,0.0
+age,0,0.0
+gender,0,0.0
+tenure_months,0,0.0
+num_products,0,0.0
+balance,0,0.0
+credit_score,0,0.0
+is_active_member,0,0.0
+estimated_salary,0,0.0
+has_credit_card,0,0.0
+num_transactions_last_month,0,0.0
+support_tickets_last_6m,0,0.0
+churn,0,0.0

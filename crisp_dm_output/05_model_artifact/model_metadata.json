@@ -1,0 +1,7 @@
+{
+  "model_name": "Logistic Regression",
+  "target": "churn",
+  "threshold": 0.5,
+  "random_state": 42,
+  "note": "The saved object contains the complete preprocessing pipeline and fitted model."
+}
