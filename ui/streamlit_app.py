@@ -33,11 +33,57 @@ if "current_retention_requests" not in st.session_state:
 if "show_retention_requests" not in st.session_state:
     st.session_state["show_retention_requests"] = False
 
+if "selected_retention_request_id" not in st.session_state:
+    st.session_state["selected_retention_request_id"] = None
+
 
 st.set_page_config(
     page_title="Bank Churn AI",
     page_icon="🏦"
 )
+
+
+def clear_selected_retention_request():
+    st.session_state["selected_retention_request_id"] = None
+
+
+@st.dialog(
+    "Retention Request Details",
+    on_dismiss=clear_selected_retention_request
+)
+def show_retention_request_details(request_item):
+    action_type = request_item.get("action_type", "Unknown")
+    if action_type == "AI_ANALYSIS":
+        action_label = "AI analysis (interaction record)"
+    else:
+        action_label = action_type.replace("_", " ").title()
+
+    st.markdown(
+        f"### {action_label} · {request_item.get('status', 'Unknown')}"
+    )
+
+    detail_col1, detail_col2 = st.columns(2)
+    detail_col1.write(f"**Request ID:** {request_item.get('id', 'N/A')}")
+    detail_col2.write(f"**Currency:** {request_item.get('currency', 'N/A')}")
+    detail_col1.write(f"**Created:** {request_item.get('created_at', 'N/A')}")
+    detail_col2.write(f"**Approved:** {request_item.get('aproved_at', 'N/A')}")
+    detail_col1.write(f"**Executed:** {request_item.get('executed_at', 'N/A')}")
+    detail_col2.write(
+        f"**Segment / Risk:** "
+        f"{request_item.get('segment', 'N/A')} / "
+        f"{request_item.get('risk', 'N/A')}"
+    )
+
+    if request_item.get("reason"):
+        st.write(f"**Reason:** {request_item['reason']}")
+
+    if request_item.get("description"):
+        st.write("**Description**")
+        st.write(request_item["description"])
+
+    if st.button("Close", key=f"close_retention_request_{request_item.get('id')}"):
+        clear_selected_retention_request()
+        st.rerun()
 
 
 # --------------------------------------------------
@@ -128,6 +174,7 @@ if submitted:
             st.session_state["show_history"] = False
             st.session_state["current_retention_requests"] = []
             st.session_state["show_retention_requests"] = False
+            st.session_state["selected_retention_request_id"] = None
 
             # --------------------------------------------------
             # AI ANALYSIS
@@ -189,6 +236,59 @@ if st.session_state["customer_loaded"]:
 
 
     # --------------------------------------------------
+    # CHURN PREDICTION
+    # --------------------------------------------------
+
+    risk = churn["risk"].upper()
+
+    if risk == "HIGH":
+
+        risk_color = "red"
+        risk_icon = "⚠️"
+
+    elif risk == "LOW":
+
+        risk_color = "green"
+        risk_icon = ""
+
+    else:
+
+        risk_color = "orange"
+        risk_icon = ""
+
+
+    st.subheader(
+        f"{risk_icon} Churn Prediction"
+    )
+
+    col1, col2 = st.columns(2)
+
+    col1.markdown(
+        f'<div style="font-size: 14px; margin-bottom: 4px;">'
+        f'Churn Probability'
+        f'</div>'
+        f'<div style="font-size: 32px; '
+        f'font-weight: bold; '
+        f'color: {risk_color};">'
+        f'{churn["churn_probability"]:.1%}'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+
+    col2.markdown(
+        f'<div style="font-size: 14px; margin-bottom: 4px;">'
+        f'Risk'
+        f'</div>'
+        f'<div style="font-size: 32px; '
+        f'font-weight: bold; '
+        f'color: {risk_color};">'
+        f'{risk}'
+        f'</div>',
+        unsafe_allow_html=True
+    )
+
+
+    # --------------------------------------------------
     # COMPLAINT HISTORY
     # --------------------------------------------------
 
@@ -211,6 +311,7 @@ if st.session_state["customer_loaded"]:
                     []
                 )
                 st.session_state["show_retention_requests"] = True
+                st.session_state["selected_retention_request_id"] = None
             except requests.RequestException as error:
                 st.error(f"Could not load retention requests: {error}")
 
@@ -262,86 +363,55 @@ if st.session_state["customer_loaded"]:
 
         else:
 
+            header = st.columns([2.1, 1.0, 1.6, 1.3, 0.55])
+            header[0].markdown("**Request**")
+            header[1].markdown("**Status**")
+            header[2].markdown("**Created**")
+            header[3].markdown("**Segment / Risk**")
+            header[4].markdown("**Info**")
+
             for request_item in retention_requests:
 
                 action_type = request_item.get("action_type", "Unknown")
                 if action_type == "AI_ANALYSIS":
-                    action_label = "AI analysis (interaction record)"
+                    action_label = "AI analysis"
                 else:
                     action_label = action_type.replace("_", " ").title()
 
-                st.markdown(
-                    f"**{action_label}** · "
-                    f"{request_item.get('status', 'Unknown')}"
+                row = st.columns([2.1, 1.0, 1.6, 1.3, 0.55], vertical_alignment="center")
+                row[0].write(action_label)
+                row[1].write(request_item.get("status", "Unknown"))
+                row[2].write(str(request_item.get("created_at", "N/A"))[:16])
+                row[3].write(
+                    f"{request_item.get('segment', 'N/A')} / "
+                    f"{request_item.get('risk', 'N/A')}"
                 )
 
-                st.caption(
-                    f"Created: {request_item.get('created_at', 'N/A')} · "
-                    f"Segment: {request_item.get('segment', 'N/A')} · "
-                    f"Risk: {request_item.get('risk', 'N/A')}"
-                )
-
-                if request_item.get("reason"):
-                    st.write(f"Reason: {request_item['reason']}")
-
-                if request_item.get("description"):
-                    with st.expander(f"Details for request #{request_item['id']}"):
-                        st.write(request_item["description"])
+                request_id = request_item.get("id")
+                if row[4].button(
+                    "View",
+                    key=f"retention_request_details_{request_id}",
+                    help=f"Show details for request #{request_id}"
+                ):
+                    current_id = st.session_state["selected_retention_request_id"]
+                    st.session_state["selected_retention_request_id"] = (
+                        None if current_id == request_id else request_id
+                    )
 
                 st.divider()
 
+            selected_request = next(
+                (
+                    request_item
+                    for request_item in retention_requests
+                    if request_item.get("id")
+                    == st.session_state["selected_retention_request_id"]
+                ),
+                None
+            )
 
-    # --------------------------------------------------
-    # CHURN PREDICTION
-    # --------------------------------------------------
-
-    risk = churn["risk"].upper()
-
-    if risk == "HIGH":
-
-        risk_color = "red"
-        risk_icon = "⚠️"
-
-    elif risk == "LOW":
-
-        risk_color = "green"
-        risk_icon = ""
-
-    else:
-
-        risk_color = "orange"
-        risk_icon = ""
-
-
-    st.subheader(
-        f"{risk_icon} Churn Prediction"
-    )
-
-    col1, col2 = st.columns(2)
-
-    col1.markdown(
-        f'<div style="font-size: 14px; margin-bottom: 4px;">'
-        f'Churn Probability'
-        f'</div>'
-        f'<div style="font-size: 32px; '
-        f'font-weight: bold; '
-        f'color: {risk_color};">'
-        f'{churn["churn_probability"]:.1%}'
-        f'</div>',
-        unsafe_allow_html=True
-    )
-
-    col2.markdown(
-        f'<div style="font-size: 14px; margin-bottom: 4px;">'
-        f'Risk'
-        f'</div>'
-        f'<div style="font-size: 32px; '
-        f'font-weight: bold; '
-        f'color: {risk_color};">'
-        f'{risk}'
-        f'</div>',
-        unsafe_allow_html=True
-    )
+            if selected_request:
+                show_retention_request_details(selected_request)
 
 
     # --------------------------------------------------
