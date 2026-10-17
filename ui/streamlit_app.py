@@ -27,6 +27,12 @@ if "current_complaints" not in st.session_state:
 if "show_history" not in st.session_state:
     st.session_state["show_history"] = False
 
+if "current_retention_requests" not in st.session_state:
+    st.session_state["current_retention_requests"] = []
+
+if "show_retention_requests" not in st.session_state:
+    st.session_state["show_retention_requests"] = False
+
 
 st.set_page_config(
     page_title="Bank Churn AI",
@@ -120,6 +126,8 @@ if submitted:
 
             st.session_state["customer_loaded"] = True
             st.session_state["show_history"] = False
+            st.session_state["current_retention_requests"] = []
+            st.session_state["show_retention_requests"] = False
 
             # --------------------------------------------------
             # AI ANALYSIS
@@ -184,9 +192,27 @@ if st.session_state["customer_loaded"]:
     # COMPLAINT HISTORY
     # --------------------------------------------------
 
-    if st.button("View Complaint History"):
+    history_col, retention_col = st.columns(2)
 
-        st.session_state["show_history"] = True
+    with history_col:
+        if st.button("View Complaint History"):
+            st.session_state["show_history"] = True
+
+    with retention_col:
+        if st.button("View Retention Requests"):
+            try:
+                response = requests.get(
+                    f"{API_URL}/customers/{customer_id}/retention-requests",
+                    timeout=10
+                )
+                response.raise_for_status()
+                st.session_state["current_retention_requests"] = response.json().get(
+                    "retention_requests",
+                    []
+                )
+                st.session_state["show_retention_requests"] = True
+            except requests.RequestException as error:
+                st.error(f"Could not load retention requests: {error}")
 
 
     if st.session_state["show_history"]:
@@ -216,6 +242,51 @@ if st.session_state["customer_loaded"]:
                     {complaint_item.get("text", "")}
                     """
                 )
+
+                st.divider()
+
+
+    if st.session_state["show_retention_requests"]:
+
+        retention_requests = st.session_state["current_retention_requests"]
+
+        st.markdown(
+            "### Retention Requests"
+        )
+
+        if not retention_requests:
+
+            st.info(
+                "No retention requests found for this customer."
+            )
+
+        else:
+
+            for request_item in retention_requests:
+
+                action_type = request_item.get("action_type", "Unknown")
+                if action_type == "AI_ANALYSIS":
+                    action_label = "AI analysis (interaction record)"
+                else:
+                    action_label = action_type.replace("_", " ").title()
+
+                st.markdown(
+                    f"**{action_label}** · "
+                    f"{request_item.get('status', 'Unknown')}"
+                )
+
+                st.caption(
+                    f"Created: {request_item.get('created_at', 'N/A')} · "
+                    f"Segment: {request_item.get('segment', 'N/A')} · "
+                    f"Risk: {request_item.get('risk', 'N/A')}"
+                )
+
+                if request_item.get("reason"):
+                    st.write(f"Reason: {request_item['reason']}")
+
+                if request_item.get("description"):
+                    with st.expander(f"Details for request #{request_item['id']}"):
+                        st.write(request_item["description"])
 
                 st.divider()
 

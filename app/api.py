@@ -59,6 +59,43 @@ def get_customer(customer_id: str):
             "complaints": [dict(c) for c in complaints]
         }
 
+
+@app.get("/customers/{customer_id}/retention-requests")
+def get_customer_retention_requests(customer_id: str):
+
+    with engine.connect() as connection:
+        customer = connection.execute(
+            text("""
+                SELECT customer_id
+                FROM customers
+                WHERE customer_id = :customer_id
+            """),
+            {"customer_id": customer_id}
+        ).first()
+
+        if not customer:
+            raise HTTPException(
+                status_code=404,
+                detail="Customer not found"
+            )
+
+        retention_requests = connection.execute(
+            text("""
+                SELECT id, action_type, description, currency, reason, status,
+                       segment, risk, created_at, aproved_at, executed_at
+                FROM retention_requests
+                WHERE customer_id = :customer_id
+                ORDER BY created_at DESC, id DESC
+            """),
+            {"customer_id": customer_id}
+        ).mappings().all()
+
+    return {
+        "customer_id": customer_id,
+        "retention_requests": [dict(request) for request in retention_requests]
+    }
+
+
 @app.post("/retention/action")
 def retention_action(payload: dict):
 
